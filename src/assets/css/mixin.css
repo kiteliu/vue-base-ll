@@ -1,0 +1,155 @@
+/*1px;解决方案*/
+.border-radius {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border-radius {
+    border: 0px;
+    border-radius: 0px;
+    position: relative;
+  }
+  .border-radius:before {
+    content: '';
+    pointer-events: none;
+    box-sizing: border-box;
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: 0;
+    top: 0;
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    -webkit-transform: scale(0.5);
+    -webkit-transform-origin: 0 0;
+    transform: scale(0.5);
+    transform-origin: 0 0;
+  }
+}
+.border-top {
+  border-top: 1px solid #f0f0f0;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border-top {
+    border-top: none;
+    position: relative;
+  }
+  .border-top::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #f0f0f0;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+.border-bottom {
+  border-bottom: 1px solid #f0f0f0;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border-bottom {
+    border-bottom: none;
+    position: relative;
+  }
+  .border-bottom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #f0f0f0;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+.border-right {
+  border-right: 1px solid #f0f0f0;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border-right {
+    border-right: 0px;
+    position: relative;
+  }
+  .border-right::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #f0f0f0;
+    width: 1px;
+    height: 100%;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+.border-left {
+  border-right: 1px solid #f0f0f0;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border-left {
+    border-right: 0px;
+    position: relative;
+  }
+  .border-left:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #f0f0f0;
+    width: 1px;
+    height: 100%;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+}
+.border {
+  border: 1px solid #f0f0f0;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  .border {
+    border: none;
+    position: relative;
+  }
+  .border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #f0f0f0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+  }
+}
+/* 超出一行... */
+.dot {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 超出两行 ... */
+.dottwo {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+}
