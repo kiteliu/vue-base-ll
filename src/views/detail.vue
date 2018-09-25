@@ -32,13 +32,6 @@ export default class welfarehome extends Vue {
   @Action('getDetailData') getDetailData
   @State('Detail') detailData
   created (params = this.$route.params) {
-    try {
-      // window._gaq.push(['_trackPageview', '福利中心', '福利详情'])
-      window.EDUU_GKEY.KEY = '福利中心-福利详情'
-      window.JzbBridge.ready((api) => {
-        api.changeTitle('福利详情')
-      })
-    } catch (e) {}
     this.getDetailData(params.id)
   }
   @Watch('detailData', {deep: true})
@@ -52,33 +45,16 @@ export default class welfarehome extends Vue {
     }
   }
   detail = {}
-  // isJzb = utils.browser.versions.jzb
   btnclick () {
     let _this = this
     let feedbackUrl = _this.detail.feedback_url ? _this.detail.feedback_url : ' '
     if (this.detail.status === 1) {
       if (window.is_visitor) {
-        try {
-          window.JzbBridge.ready((api) => {
-            api.noLogin('未登录', window.location.href)
-          })
-        } catch (e) {}
         return false
       }
-      try {
-        // window._gaq.push(['_trackEvent', '福利中心', '福利详情-点击领取', _this.detail.title])
-        window.ga('send', 'event', '福利中心', '福利详情-点击领取', _this.detail.title)
-      } catch (e) {}
       go(`/welfare/page/userinfo/${this.detail.id}`, this.$router)
     }
     if (this.detail.status === 4) {
-      try {
-        window.JzbBridge.ready((api) => {
-          api.innerAppRedirectURLHandler(encodeURIComponent(feedbackUrl))
-        })
-        // window._gaq.push(['_trackEvent', '福利中心', '填写资料-填写反馈', _this.detail.title])
-        window.ga('send', 'event', '福利中心', '填写资料-填写反馈', _this.detail.title)
-      } catch (e) {}
     }
   }
 }

@@ -19,14 +19,7 @@ import store from './store'
 Vue.use(VueRouter)
 Vue.use(VueLazyComponent)
 Vue.use(Vuex)
-// Vue.use(VueLazyload)
-// Vue.use(VueLazyload, {
-//   preLoad: 1.3,
-//   error: 'https://atths.jzb.com/website/fe/pub_images/logo300.png',
-//   loading: 'https://atths.jzb.com/website/fe/pub_images/logo300.png',
-//   attempt: 1,
-//   listenEvents: [ 'scroll', 'mousewheel' ]
-// })
+
 // vue router
 const router = new VueRouter({
   mode: 'history',

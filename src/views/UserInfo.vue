@@ -110,15 +110,6 @@ export default class UserInfo extends Vue {
   @State('Detail') detailData
   created (params = this.$route.params) {
     this.id = params.id
-    try {
-      // window._gaq.push(['_trackPageview', '福利中心', '领取福利'])
-      window.EDUU_GKEY.KEY = '福利中心-领取福利'
-    } catch (e) {}
-    try {
-      window.JzbBridge.ready((api) => {
-        api.changeTitle('领取福利')
-      })
-    } catch (e) {}
     if (this.detailData.errcode !== 0) this.getDetailData(this.id)
     else this.setStatus(this.detailData)
   }
@@ -260,7 +251,7 @@ export default class UserInfo extends Vue {
   success () {
     if (!this.loaded) return
     if (this.status === 4) {
-      window.location.href = this.detailData.feedback_url || 'https://jzb.com'
+      window.location.href = this.detailData.feedback_url || 'https://baidu.com'
       return
     }
     if (this.status !== 1) return
@@ -314,7 +305,7 @@ export default class UserInfo extends Vue {
 
 <style lang="less" scoped>
 .userInfo {
-  background: url('https://atths.jzb.com/website/fe/welfareCenter/static/img/userInfoBg@2x.5ab0d2e.png') no-repeat left top;
+  background: url('') no-repeat left top;
   background-size: 100% auto;
   overflow: hidden;
   .title {

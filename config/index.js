@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/welfare': {
-        target: 'http://app-dev.jzb.com',
+        target: 'url',
         changeOrigin: true,
         pathRewrite: {
           '^/welfare': '/welfare'

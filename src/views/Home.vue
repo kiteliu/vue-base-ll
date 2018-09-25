@@ -54,13 +54,6 @@ export default class WelfareHome extends Vue {
   }
   dateSeconds = Math.round(new Date().getTime() / 1000)
   created () {
-    try {
-      // window._gaq.push(['_trackPageview', '福利中心', '福利列表'])
-      window.EDUU_GKEY.KEY = '福利中心-福利列表'
-      window.JzbBridge.ready((api) => {
-        api.changeTitle('福利中心')
-      })
-    } catch (e) {}
     this.loadMore()
   }
   @Watch('homeData', {deep: true})
@@ -182,7 +175,7 @@ export default class WelfareHome extends Vue {
   right: 14px;
   bottom: 77px;
   z-index: 100;
-  background: url('https://atths.jzb.com/website/fe/welfareCenter/static/img/mywelfare@2x.png') no-repeat center;
+  background: url('') no-repeat center;
   background-size: cover;
 }
 .moreLoading {

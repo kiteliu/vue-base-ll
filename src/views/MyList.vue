@@ -48,15 +48,6 @@ export default class MyList extends Vue {
   @Action('getMyList') getMyList
   @State('ml') mylist
   created (params = this.$route.params) {
-    try {
-      // window._gaq.push(['_trackPageview', '福利中心', '福利列表-我的福利'])
-      window.EDUU_GKEY.KEY = '福利中心-我的福利'
-    } catch (e) {}
-    try {
-      window.JzbBridge.ready((api) => {
-        api.changeTitle('我的福利')
-      })
-    } catch (e) {}
     this.getList()
   }
 
